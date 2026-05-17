@@ -273,11 +273,9 @@ async function syncToSheet() {
   try {
     syncMsg = 'syncing';
     render();
-    await fetch(sheetUrl, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: JSON.stringify({ action: 'saveJobs', jobs: jobs })
-    });
+    var encoded = encodeURIComponent(JSON.stringify(jobs));
+    var url = sheetUrl + '?action=saveJobs&jobs=' + encoded;
+    await fetch(url);
     syncMsg = 'ok';
     render();
     setTimeout(function() { syncMsg = ''; render(); }, 3000);
@@ -290,10 +288,10 @@ async function syncToSheet() {
 async function fetchFromSheet() {
   if (!sheetUrl) return;
   try {
-    var url = sheetUrl + (sheetUrl.indexOf('?') > -1 ? '&' : '?') + 'action=getJobs';
+    var url = sheetUrl + '?action=getJobs';
     var res = await fetch(url);
     var data = await res.json();
-    if (data && data.jobs) {
+    if (data && data.jobs && data.jobs.length > 0) {
       jobs = data.jobs;
       localStorage.setItem('jb_jobs', JSON.stringify(jobs));
       render();
