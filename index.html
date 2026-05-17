@@ -308,7 +308,7 @@ function login(user) {
   document.getElementById('app').style.display = 'block';
   if (!sheetUrl) document.getElementById('setup-banner').style.display = 'block';
   currentPage = 'dashboard';
-  if (sheetUrl) fetchFromSheet();
+  fetchFromSheet();
   render();
 }
 
