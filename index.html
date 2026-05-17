@@ -21,24 +21,13 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Mono', monospace; min-height: 100vh; overflow-x: hidden; }
-  
-  /* Login */
-  #login-screen {
-    min-height: 100vh; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; padding: 32px 24px;
-    background: radial-gradient(ellipse at 50% 0%, #f9731608 0%, transparent 70%);
-  }
+  #login-screen { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px 24px; background: radial-gradient(ellipse at 50% 0%, #f9731608 0%, transparent 70%); }
   .login-logo { text-align: center; margin-bottom: 48px; }
   .login-logo .brand { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: #fff; letter-spacing: 0.05em; line-height: 1; }
   .login-logo .sub { font-size: 10px; letter-spacing: 0.4em; color: var(--orange); margin-top: 4px; text-transform: uppercase; }
   .login-logo .version { font-size: 9px; color: var(--muted); margin-top: 8px; letter-spacing: 0.2em; }
   .login-divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--orange), var(--cyan)); margin: 16px auto; border-radius: 2px; }
-  .login-btn {
-    width: 100%; max-width: 320px; padding: 20px 24px; border: 1px solid; border-radius: 14px;
-    font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.1em;
-    cursor: pointer; transition: all 0.2s; margin-bottom: 12px; display: block;
-    position: relative; overflow: hidden;
-  }
+  .login-btn { width: 100%; max-width: 320px; padding: 20px 24px; border: 1px solid; border-radius: 14px; font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.1em; cursor: pointer; transition: all 0.2s; margin-bottom: 12px; display: block; position: relative; overflow: hidden; }
   .login-btn::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.2s; }
   .login-btn:active::before { opacity: 1; }
   .login-btn-owner { border-color: var(--orange); color: var(--orange); background: rgba(249,115,22,0.08); }
@@ -46,67 +35,28 @@
   .login-btn-crew { border-color: var(--cyan); color: var(--cyan); background: rgba(34,211,238,0.08); }
   .login-btn-crew::before { background: rgba(34,211,238,0.1); }
   .login-btn .btn-role { font-size: 10px; letter-spacing: 0.3em; display: block; font-family: 'IBM Plex Mono', monospace; opacity: 0.6; margin-top: 2px; }
-
-  /* Setup Banner */
-  #setup-banner {
-    background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.3);
-    border-radius: 10px; padding: 12px 16px; margin: 0 16px 16px;
-    font-size: 11px; color: var(--orange); line-height: 1.6; display: none;
-  }
-  #setup-banner a { color: var(--orange); }
-
-  /* Header */
-  #header {
-    background: var(--card); border-bottom: 1px solid var(--border);
-    padding: 14px 16px; display: flex; justify-content: space-between;
-    align-items: center; position: sticky; top: 0; z-index: 100;
-  }
+  #setup-banner { background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.3); border-radius: 10px; padding: 12px 16px; margin: 0 16px 16px; font-size: 11px; color: var(--orange); line-height: 1.6; display: none; }
+  #header { background: var(--card); border-bottom: 1px solid var(--border); padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
   .header-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; line-height: 1; }
   .header-brand { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 2px; }
   .header-right { display: flex; gap: 8px; align-items: center; }
-  .clock-btn {
-    padding: 7px 12px; border-radius: 8px; border: 1px solid; font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px; font-weight: 700; letter-spacing: 0.08em; cursor: pointer; transition: all 0.15s;
-  }
+  .clock-btn { padding: 7px 12px; border-radius: 8px; border: 1px solid; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; cursor: pointer; transition: all 0.15s; }
   .clock-in { border-color: var(--green); color: var(--green); background: rgba(34,197,94,0.08); }
   .clock-out { border-color: var(--red); color: var(--red); background: rgba(239,68,68,0.08); }
-  .switch-btn {
-    padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border);
-    color: var(--muted); background: transparent; font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px; cursor: pointer;
-  }
-
-  /* Main */
+  .switch-btn { padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border); color: var(--muted); background: transparent; font-family: 'IBM Plex Mono', monospace; font-size: 10px; cursor: pointer; }
   #app { display: none; padding-bottom: 80px; }
   .page { display: none; padding: 16px; max-width: 520px; margin: 0 auto; }
   .page.active { display: block; }
-
-  /* Bottom Nav */
-  #bottom-nav {
-    position: fixed; bottom: 0; left: 0; right: 0;
-    background: var(--card); border-top: 1px solid var(--border);
-    display: flex; padding: 10px 12px 16px; gap: 8px; z-index: 100;
-  }
-  .nav-btn {
-    flex: 1; padding: 10px 4px; border-radius: 10px; border: 1px solid;
-    font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.15s;
-  }
+  #bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--card); border-top: 1px solid var(--border); display: flex; padding: 10px 12px 16px; gap: 8px; z-index: 100; }
+  .nav-btn { flex: 1; padding: 10px 4px; border-radius: 10px; border: 1px solid; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.15s; }
   .nav-btn.inactive { border-color: var(--border); color: var(--muted); background: transparent; }
-
-  /* Cards */
   .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
   .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
   .stat-label { font-size: 8px; color: var(--muted); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 6px; }
   .stat-value { font-family: 'Bebas Neue', sans-serif; font-size: 26px; line-height: 1; }
   .stat-sub { font-size: 9px; color: var(--muted); margin-top: 4px; }
-
   .section-label { font-size: 8px; color: var(--muted); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 12px; }
-
-  .job-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-    padding: 14px; margin-bottom: 10px; cursor: pointer; transition: border-color 0.2s;
-  }
+  .job-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 10px; cursor: pointer; transition: border-color 0.2s; }
   .job-card:active { opacity: 0.8; }
   .job-card.expanded { border-color: rgba(249,115,22,0.4); }
   .job-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
@@ -123,101 +73,65 @@
   .expand-cell-val { font-family: 'Bebas Neue', sans-serif; font-size: 15px; }
   .job-note { font-size: 10px; color: var(--muted); font-style: italic; }
   .job-addr { font-size: 10px; color: var(--dim); margin-bottom: 4px; }
-
-  /* Form */
-  .primary-btn {
-    width: 100%; padding: 15px; border: 1px solid; border-radius: 12px;
-    font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.1em;
-    cursor: pointer; transition: all 0.15s; margin-bottom: 16px;
-  }
+  .primary-btn { width: 100%; padding: 15px; border: 1px solid; border-radius: 12px; font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.1em; cursor: pointer; transition: all 0.15s; margin-bottom: 16px; }
   .form-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
   .form-box.accent-border { border-color: rgba(249,115,22,0.4); }
   .form-title { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 16px; }
   .form-row { display: flex; gap: 10px; }
   .form-group { margin-bottom: 12px; flex: 1; }
   .form-label { font-size: 8px; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 5px; display: block; }
-  .form-input {
-    width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
-    padding: 10px 12px; color: var(--text); font-size: 13px;
-    font-family: 'IBM Plex Mono', monospace; outline: none; transition: border-color 0.15s;
-  }
+  .form-input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; color: var(--text); font-size: 13px; font-family: 'IBM Plex Mono', monospace; outline: none; transition: border-color 0.15s; }
   .form-input:focus { border-color: var(--orange); }
   select.form-input { cursor: pointer; }
   .status-row { display: flex; gap: 8px; margin-bottom: 12px; }
-  .status-opt {
-    flex: 1; padding: 9px 4px; border-radius: 8px; border: 1px solid var(--border);
-    color: var(--muted); background: transparent; font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer;
-    transition: all 0.15s;
-  }
+  .status-opt { flex: 1; padding: 9px 4px; border-radius: 8px; border: 1px solid var(--border); color: var(--muted); background: transparent; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.15s; }
   .repeat-check { display: flex; align-items: center; gap: 10px; cursor: pointer; margin-bottom: 12px; }
   .repeat-check input { accent-color: var(--orange); width: 16px; height: 16px; }
   .repeat-check span { font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
   .pay-preview { background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.2); border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; font-size: 11px; color: var(--cyan); }
   .btn-row { display: flex; gap: 10px; }
-  .save-btn {
-    flex: 1; padding: 13px; border: none; border-radius: 10px; font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px; letter-spacing: 0.1em; cursor: pointer; transition: all 0.15s;
-  }
-  .cancel-btn {
-    padding: 13px 16px; background: transparent; border: 1px solid var(--border);
-    color: var(--muted); border-radius: 10px; cursor: pointer; font-family: 'IBM Plex Mono', monospace;
-    font-size: 14px;
-  }
-
-  /* Checklist */
+  .save-btn { flex: 1; padding: 13px; border: none; border-radius: 10px; font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.1em; cursor: pointer; transition: all 0.15s; }
+  .cancel-btn { padding: 13px 16px; background: transparent; border: 1px solid var(--border); color: var(--muted); border-radius: 10px; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 14px; }
   .checklist-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
-  .check-item {
-    display: flex; align-items: center; gap: 14px; padding: 14px 0;
-    border-bottom: 1px solid var(--border); cursor: pointer; transition: opacity 0.15s;
-  }
+  .check-item { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: opacity 0.15s; }
   .check-item:last-child { border-bottom: none; }
-  .check-box {
-    width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--dim);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    font-size: 12px; transition: all 0.15s;
-  }
+  .check-box { width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--dim); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; transition: all 0.15s; }
   .check-box.checked { background: var(--green); border-color: var(--green); }
   .check-text { font-size: 13px; transition: all 0.15s; }
   .check-text.done { color: var(--muted); text-decoration: line-through; }
   .check-progress { text-align: center; padding-top: 14px; font-size: 10px; color: var(--muted); letter-spacing: 0.2em; }
   .progress-bar { height: 4px; background: var(--border); border-radius: 4px; margin-top: 10px; overflow: hidden; }
   .progress-fill { height: 100%; background: linear-gradient(90deg, var(--orange), var(--green)); border-radius: 4px; transition: width 0.3s; }
-
-  /* Stats bars */
   .type-bar { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 8px; }
   .type-bar-top { display: flex; justify-content: space-between; margin-bottom: 6px; }
   .type-name { font-size: 12px; font-weight: 700; color: var(--text); }
   .type-rev { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: var(--green); }
   .type-track { height: 5px; background: var(--border); border-radius: 4px; overflow: hidden; margin-top: 8px; }
   .type-fill { height: 100%; background: linear-gradient(90deg, var(--orange), var(--green)); border-radius: 4px; }
-
-  /* Sync banner */
   .sync-msg { font-size: 10px; padding: 8px 12px; border-radius: 8px; margin-bottom: 12px; text-align: center; letter-spacing: 0.1em; }
   .sync-ok { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
   .sync-err { background: rgba(239,68,68,0.1); color: var(--red); border: 1px solid rgba(239,68,68,0.2); }
   .sync-pending { background: rgba(249,115,22,0.1); color: var(--orange); border: 1px solid rgba(249,115,22,0.2); }
-
   .empty-state { text-align: center; padding: 48px 24px; color: var(--muted); font-size: 11px; letter-spacing: 0.15em; }
   .pin-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #374151; background: transparent; transition: all 0.15s; }
   .pin-dot.filled { background: #f97316; border-color: #f97316; }
-
-  /* Sheet config */
   .config-section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
   .config-title { font-size: 9px; color: var(--orange); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 10px; }
   .config-text { font-size: 11px; color: var(--muted); line-height: 1.7; margin-bottom: 10px; }
   .config-text code { color: var(--cyan); background: rgba(34,211,238,0.1); padding: 1px 5px; border-radius: 3px; }
+  .pin-btn { padding: 18px; border-radius: 12px; border: 1px solid #16162a; background: #0d0d1a; color: #e2e8f0; font-family: 'Bebas Neue', sans-serif; font-size: 24px; cursor: pointer; }
+  .pin-btn-blank { padding: 18px; border-radius: 12px; border: 1px solid transparent; background: transparent; cursor: default; }
 </style>
 </head>
 <body>
-
+ 
 <!-- PIN SCREEN -->
 <div id="pin-screen" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;background:radial-gradient(ellipse at 50% 0%,#f9731608 0%,transparent 70%)">
   <div class="login-logo">
     <div class="sub">Junk Bros FL LLC</div>
     <div class="brand">CREW OS</div>
     <div class="login-divider"></div>
-    <div class="version">v2.0 — Standalone</div>
+    <div class="version">v2.1 — Synced</div>
   </div>
   <div style="width:100%;max-width:300px">
     <div style="font-size:9px;color:#4b5563;letter-spacing:0.3em;text-transform:uppercase;text-align:center;margin-bottom:16px">Enter PIN</div>
@@ -225,21 +139,17 @@
       <div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div>
     </div>
     <div id="pin-error" style="display:none;text-align:center;font-size:11px;color:#ef4444;margin-bottom:12px;letter-spacing:0.1em">INCORRECT PIN</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
-      ${[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>`
-        <button onclick="pinPress('${k}')" style="padding:18px;border-radius:12px;border:1px solid #16162a;background:#0d0d1a;color:${k===''?'transparent':'#e2e8f0'};font-family:'Bebas Neue',sans-serif;font-size:24px;cursor:pointer;${k===''?'pointer-events:none':''}">${k}</button>
-      `).join('')}
-    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px" id="pin-pad"></div>
   </div>
 </div>
-
+ 
 <!-- LOGIN -->
 <div id="login-screen" style="display:none">
   <div class="login-logo">
     <div class="sub">Junk Bros FL LLC</div>
     <div class="brand">CREW OS</div>
     <div class="login-divider"></div>
-    <div class="version">v2.0 — Standalone</div>
+    <div class="version">v2.1 — Synced</div>
   </div>
   <button class="login-btn login-btn-owner" onclick="login('tyler')">
     🔑 Tyler
@@ -250,14 +160,12 @@
     <span class="btn-role">Crew · Field Access</span>
   </button>
 </div>
-
+ 
 <!-- APP -->
 <div id="app">
   <div id="setup-banner">
     ⚠️ SETUP NEEDED — Add your Google Sheet URL in Settings to enable data sync between devices.
   </div>
-
-  <!-- Header -->
   <div id="header">
     <div>
       <div class="header-brand" id="header-brand">Junk Bros FL</div>
@@ -268,122 +176,123 @@
       <button class="switch-btn" onclick="logout()">↩</button>
     </div>
   </div>
-
-  <!-- Pages -->
   <div id="page-dashboard" class="page active"></div>
   <div id="page-jobs" class="page"></div>
   <div id="page-stats" class="page"></div>
   <div id="page-pay" class="page"></div>
   <div id="page-checklist" class="page"></div>
   <div id="page-settings" class="page"></div>
-
-  <!-- Bottom Nav -->
   <div id="bottom-nav"></div>
 </div>
-
+ 
 <script>
+// ─── BUILD PIN PAD ────────────────────────────────────────────────────────────
+(function buildPinPad() {
+  const keys = [1,2,3,4,5,6,7,8,9,'',0,'⌫'];
+  const pad = document.getElementById('pin-pad');
+  keys.forEach(function(k) {
+    var btn = document.createElement('button');
+    if (k === '') {
+      btn.className = 'pin-btn-blank';
+      btn.disabled = true;
+    } else {
+      btn.className = 'pin-btn';
+      btn.textContent = k;
+      btn.addEventListener('click', function() { pinPress(String(k)); });
+    }
+    pad.appendChild(btn);
+  });
+})();
+ 
 // ─── PIN ─────────────────────────────────────────────────────────────────────
-const PINS = { '6400': 'tyler', '1203': 'layne' };
-let pinEntry = '';
-
+var PINS = { '6400': 'tyler', '1203': 'layne' };
+var pinEntry = '';
+ 
 function pinPress(key) {
   if (key === '⌫') {
-    pinEntry = pinEntry.slice(0,-1);
-  } else if (key !== '' && pinEntry.length < 4) {
+    pinEntry = pinEntry.slice(0, -1);
+  } else if (pinEntry.length < 4) {
     pinEntry += key;
   }
   updatePinDots();
   if (pinEntry.length === 4) {
-    setTimeout(() => {
-      const user = PINS[pinEntry];
+    setTimeout(function() {
+      var user = PINS[pinEntry];
       if (user) {
         document.getElementById('pin-screen').style.display = 'none';
-        document.getElementById('login-screen').style.display = 'flex';
-        document.getElementById('login-screen').style.flexDirection = 'column';
-        document.getElementById('login-screen').style.alignItems = 'center';
-        document.getElementById('login-screen').style.justifyContent = 'center';
-        document.getElementById('login-screen').style.minHeight = '100vh';
-        document.getElementById('login-screen').style.padding = '32px 24px';
-        // Auto login to correct user
         login(user);
-        document.getElementById('login-screen').style.display = 'none';
       } else {
         document.getElementById('pin-error').style.display = 'block';
         pinEntry = '';
         updatePinDots();
-        setTimeout(() => document.getElementById('pin-error').style.display = 'none', 1500);
+        setTimeout(function() { document.getElementById('pin-error').style.display = 'none'; }, 1500);
       }
     }, 150);
   }
 }
-
+ 
 function updatePinDots() {
-  const dots = document.querySelectorAll('.pin-dot');
-  dots.forEach((d,i) => d.classList.toggle('filled', i < pinEntry.length));
+  var dots = document.querySelectorAll('.pin-dot');
+  dots.forEach(function(d, i) { d.classList.toggle('filled', i < pinEntry.length); });
 }
-
+ 
 // ─── STATE ───────────────────────────────────────────────────────────────────
-let currentUser = null;
-let clockedIn = null;
-let expandedJob = null;
-let showForm = false;
-let currentPage = 'dashboard';
-let syncMsg = '';
-let checklistState = { trailer:false, fuel:false, straps:false, bags:false, gloves:false, spray:false };
-let sheetUrl = localStorage.getItem('jb_sheet_url') || '';
-
-let jobs = JSON.parse(localStorage.getItem('jb_jobs') || '[]');
-
-const JOB_TYPES = ['Junk Removal','Hauling','Painting','Handyman','Moving','Yard Debris','Hot Tub/Appliance','Other'];
-const STATUSES = ['completed','in-progress','pending'];
-
-let formData = resetForm();
+var currentUser = null;
+var clockedIn = null;
+var expandedJob = null;
+var showForm = false;
+var currentPage = 'dashboard';
+var syncMsg = '';
+var checklistState = { trailer:false, fuel:false, straps:false, bags:false, gloves:false, spray:false };
+var sheetUrl = localStorage.getItem('jb_sheet_url') || '';
+var jobs = JSON.parse(localStorage.getItem('jb_jobs') || '[]');
+var JOB_TYPES = ['Junk Removal','Hauling','Painting','Handyman','Moving','Yard Debris','Hot Tub/Appliance','Other'];
+var STATUSES = ['completed','in-progress','pending'];
+var formData = resetForm();
+ 
 function resetForm() {
   return { title:'', customer:'', phone:'', address:'', type:'Junk Removal', revenue:'', quote:'', dumpFee:'', layneFlat:'', laynePercent:'', mileage:'', status:'completed', notes:'', repeat:false };
 }
-
+ 
 // ─── UTILS ───────────────────────────────────────────────────────────────────
-const fmt = n => '$' + Number(n||0).toFixed(2);
-const fmtDate = iso => iso ? new Date(iso).toLocaleDateString([],{month:'short',day:'numeric'}) : '--';
-const fmtTime = iso => iso ? new Date(iso).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}) : '--';
-const statusColor = s => s==='completed'?'#22c55e':s==='in-progress'?'#f97316':'#6b7280';
-const isOwner = () => currentUser === 'tyler';
-const ac = () => isOwner() ? '#f97316' : '#22d3ee';
-
+var fmt = function(n) { return '$' + Number(n||0).toFixed(2); };
+var fmtDate = function(iso) { return iso ? new Date(iso).toLocaleDateString([],{month:'short',day:'numeric'}) : '--'; };
+var fmtTime = function(iso) { return iso ? new Date(iso).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}) : '--'; };
+var statusColor = function(s) { return s==='completed'?'#22c55e':s==='in-progress'?'#f97316':'#6b7280'; };
+var isOwner = function() { return currentUser === 'tyler'; };
+var ac = function() { return isOwner() ? '#f97316' : '#22d3ee'; };
+ 
 function saveJobs() {
   localStorage.setItem('jb_jobs', JSON.stringify(jobs));
   syncToSheet();
 }
-
+ 
 // ─── GOOGLE SHEETS SYNC ──────────────────────────────────────────────────────
 async function syncToSheet() {
   if (!sheetUrl) return;
   try {
     syncMsg = 'syncing';
     render();
-    const url = sheetUrl.includes('exec') ? sheetUrl : null;
-    if (!url) { syncMsg = 'error'; render(); return; }
-    await fetch(url, {
+    await fetch(sheetUrl, {
       method: 'POST',
       mode: 'no-cors',
-      body: JSON.stringify({ action: 'saveJobs', jobs })
+      body: JSON.stringify({ action: 'saveJobs', jobs: jobs })
     });
     syncMsg = 'ok';
     render();
-    setTimeout(() => { syncMsg = ''; render(); }, 3000);
+    setTimeout(function() { syncMsg = ''; render(); }, 3000);
   } catch(e) {
     syncMsg = 'error';
     render();
   }
 }
-
+ 
 async function fetchFromSheet() {
   if (!sheetUrl) return;
   try {
-    const url = sheetUrl.includes('exec') ? sheetUrl + '?action=getJobs' : null;
-    if (!url) return;
-    const res = await fetch(url);
-    const data = await res.json();
+    var url = sheetUrl + (sheetUrl.indexOf('?') > -1 ? '&' : '?') + 'action=getJobs';
+    var res = await fetch(url);
+    var data = await res.json();
     if (data && data.jobs) {
       jobs = data.jobs;
       localStorage.setItem('jb_jobs', JSON.stringify(jobs));
@@ -391,11 +300,11 @@ async function fetchFromSheet() {
     }
   } catch(e) {}
 }
-
+ 
 // ─── AUTH ─────────────────────────────────────────────────────────────────────
 function login(user) {
   currentUser = user;
-  clockedIn = JSON.parse(localStorage.getItem(`jb_clock_${user}`) || 'null');
+  clockedIn = JSON.parse(localStorage.getItem('jb_clock_' + user) || 'null');
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app').style.display = 'block';
   if (!sheetUrl) document.getElementById('setup-banner').style.display = 'block';
@@ -403,45 +312,46 @@ function login(user) {
   if (sheetUrl) fetchFromSheet();
   render();
 }
-
+ 
 function logout() {
   currentUser = null;
   pinEntry = '';
   updatePinDots();
   document.getElementById('pin-screen').style.display = 'flex';
+  document.getElementById('pin-screen').style.flexDirection = 'column';
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app').style.display = 'none';
   document.getElementById('setup-banner').style.display = 'none';
 }
-
+ 
 // ─── CLOCK ────────────────────────────────────────────────────────────────────
 function toggleClock() {
   if (clockedIn) {
     clockedIn = null;
-    localStorage.removeItem(`jb_clock_${currentUser}`);
+    localStorage.removeItem('jb_clock_' + currentUser);
   } else {
     clockedIn = new Date().toISOString();
-    localStorage.setItem(`jb_clock_${currentUser}`, JSON.stringify(clockedIn));
+    localStorage.setItem('jb_clock_' + currentUser, JSON.stringify(clockedIn));
   }
   render();
 }
-
+ 
 // ─── NAV ──────────────────────────────────────────────────────────────────────
 function setPage(page) {
   currentPage = page;
   showForm = false;
   render();
 }
-
+ 
 // ─── JOB ACTIONS ─────────────────────────────────────────────────────────────
 function toggleExpand(id) {
   expandedJob = expandedJob === id ? null : id;
   render();
 }
-
+ 
 function submitJob() {
   if (!formData.title || !formData.revenue) return;
-  const layneAmt = formData.laynePercent
+  var layneAmt = formData.laynePercent
     ? parseFloat(formData.revenue) * (parseFloat(formData.laynePercent)/100)
     : parseFloat(formData.layneFlat||0);
   jobs.unshift({
@@ -459,69 +369,63 @@ function submitJob() {
   saveJobs();
   render();
 }
-
+ 
 function deleteJob(id) {
   if (!confirm('Delete this job?')) return;
-  jobs = jobs.filter(j => j.id !== id);
+  jobs = jobs.filter(function(j) { return j.id !== id; });
   saveJobs();
   render();
 }
-
+ 
 function toggleCheck(key) {
   checklistState[key] = !checklistState[key];
   render();
 }
-
+ 
 function updateForm(key, val) {
   formData[key] = val;
   render();
 }
-
+ 
 // ─── STATS ────────────────────────────────────────────────────────────────────
 function getStats() {
-  const totalRev = jobs.reduce((s,j)=>s+j.revenue,0);
-  const totalDump = jobs.reduce((s,j)=>s+(j.dumpFee||0),0);
-  const totalPaid = jobs.reduce((s,j)=>s+(j.laynePayDay||0),0);
-  const profit = totalRev - totalDump - totalPaid;
-  const margin = totalRev ? ((profit/totalRev)*100).toFixed(0) : 0;
-  const today = jobs.filter(j=>new Date(j.date).toDateString()===new Date().toDateString());
-  const weekAgo = new Date(Date.now()-7*86400000);
-  const weekJobs = jobs.filter(j=>new Date(j.date)>=weekAgo);
-  const layneWeek = weekJobs.reduce((s,j)=>s+(j.laynePayDay||0),0);
-  const layneTotal = jobs.reduce((s,j)=>s+(j.laynePayDay||0),0);
-  return { totalRev, totalDump, totalPaid, profit, margin, today, weekJobs, layneWeek, layneTotal };
+  var totalRev = jobs.reduce(function(s,j){return s+j.revenue;},0);
+  var totalDump = jobs.reduce(function(s,j){return s+(j.dumpFee||0);},0);
+  var totalPaid = jobs.reduce(function(s,j){return s+(j.laynePayDay||0);},0);
+  var profit = totalRev - totalDump - totalPaid;
+  var margin = totalRev ? ((profit/totalRev)*100).toFixed(0) : 0;
+  var todayStr = new Date().toDateString();
+  var today = jobs.filter(function(j){return new Date(j.date).toDateString()===todayStr;});
+  var weekAgo = new Date(Date.now()-7*86400000);
+  var weekJobs = jobs.filter(function(j){return new Date(j.date)>=weekAgo;});
+  var layneWeek = weekJobs.reduce(function(s,j){return s+(j.laynePayDay||0);},0);
+  var layneTotal = jobs.reduce(function(s,j){return s+(j.laynePayDay||0);},0);
+  return { totalRev:totalRev, totalDump:totalDump, totalPaid:totalPaid, profit:profit, margin:margin, today:today, weekJobs:weekJobs, layneWeek:layneWeek, layneTotal:layneTotal };
 }
-
+ 
 // ─── RENDER ───────────────────────────────────────────────────────────────────
 function render() {
   if (!currentUser) return;
-  const s = getStats();
-  const color = ac();
-
-  // Header
+  var s = getStats();
+  var color = ac();
+ 
   document.getElementById('header-brand').style.color = color;
   document.getElementById('header-name').textContent = isOwner() ? 'Tyler' : 'Layne';
-  const cb = document.getElementById('clock-btn');
-  cb.textContent = clockedIn ? `⏹ OUT ${fmtTime(clockedIn)}` : '▶ CLOCK IN';
+  var cb = document.getElementById('clock-btn');
+  cb.textContent = clockedIn ? ('⏹ OUT ' + fmtTime(clockedIn)) : '▶ CLOCK IN';
   cb.className = 'clock-btn ' + (clockedIn ? 'clock-out' : 'clock-in');
-
-  // Nav
-  const navItems = isOwner()
-    ? ['dashboard','jobs','stats','checklist','settings']
-    : ['dashboard','jobs','pay','checklist'];
-  const nav = document.getElementById('bottom-nav');
-  nav.innerHTML = navItems.map(v => `
-    <button class="nav-btn ${v===currentPage?'':'inactive'}" 
-      style="${v===currentPage?`border-color:${color};color:${color};background:${color}18`:''}"
-      onclick="setPage('${v}')">${v}</button>
-  `).join('');
-
-  // Pages visibility
-  ['dashboard','jobs','stats','pay','checklist','settings'].forEach(p => {
-    const el = document.getElementById(`page-${p}`);
+ 
+  var navItems = isOwner() ? ['dashboard','jobs','stats','checklist','settings'] : ['dashboard','jobs','pay','checklist'];
+  var nav = document.getElementById('bottom-nav');
+  nav.innerHTML = navItems.map(function(v) {
+    return '<button class="nav-btn ' + (v===currentPage?'':'inactive') + '" style="' + (v===currentPage?'border-color:'+color+';color:'+color+';background:'+color+'18':'') + '" onclick="setPage(\'' + v + '\')">' + v + '</button>';
+  }).join('');
+ 
+  ['dashboard','jobs','stats','pay','checklist','settings'].forEach(function(p) {
+    var el = document.getElementById('page-' + p);
     if (el) el.className = 'page' + (p===currentPage?' active':'');
   });
-
+ 
   renderDashboard(s, color);
   renderJobs(s, color);
   if (isOwner()) renderStats(s);
@@ -529,192 +433,153 @@ function render() {
   renderChecklist();
   if (isOwner()) renderSettings();
 }
-
+ 
 function syncBanner() {
   if (!syncMsg) return '';
-  const map = { ok: ['sync-ok','✓ SYNCED'], error: ['sync-err','✕ SYNC FAILED'], syncing: ['sync-pending','⟳ SYNCING...'] };
-  const [cls, txt] = map[syncMsg] || ['',''];
-  return `<div class="sync-msg ${cls}">${txt}</div>`;
+  var map = { ok: ['sync-ok','✓ SYNCED'], error: ['sync-err','✕ SYNC FAILED'], syncing: ['sync-pending','⟳ SYNCING...'] };
+  var arr = map[syncMsg] || ['',''];
+  return '<div class="sync-msg ' + arr[0] + '">' + arr[1] + '</div>';
 }
-
+ 
 function renderDashboard(s, color) {
-  const el = document.getElementById('page-dashboard');
-  const byType = JOB_TYPES.map(t=>({t,rev:jobs.filter(j=>j.type===t).reduce((a,j)=>a+j.revenue,0),count:jobs.filter(j=>j.type===t).length})).filter(x=>x.count>0).sort((a,b)=>b.rev-a.rev);
-
+  var el = document.getElementById('page-dashboard');
+  var dateStr = new Date().toLocaleDateString([],{weekday:'long',month:'long',day:'numeric'});
   if (isOwner()) {
-    el.innerHTML = `
-      ${syncBanner()}
-      <div class="section-label">${new Date().toLocaleDateString([],{weekday:'long',month:'long',day:'numeric'})}</div>
-      <div class="stat-grid">
-        <div class="stat-card"><div class="stat-label">Net Profit</div><div class="stat-value" style="color:#22c55e">${fmt(s.profit)}</div><div class="stat-sub">${s.margin}% margin</div></div>
-        <div class="stat-card"><div class="stat-label">Total Revenue</div><div class="stat-value" style="color:${color}">${fmt(s.totalRev)}</div><div class="stat-sub">${jobs.length} jobs</div></div>
-        <div class="stat-card"><div class="stat-label">Today Revenue</div><div class="stat-value" style="color:${color}">${fmt(s.today.reduce((a,j)=>a+j.revenue,0))}</div><div class="stat-sub">${s.today.length} jobs today</div></div>
-        <div class="stat-card"><div class="stat-label">Layne Paid</div><div class="stat-value" style="color:#22d3ee">${fmt(s.totalPaid)}</div><div class="stat-sub">total</div></div>
-      </div>
-      <div class="section-label">Recent Jobs</div>
-      ${jobs.slice(0,3).map(j=>jobCard(j,color)).join('')}
-    `;
+    el.innerHTML = syncBanner() +
+      '<div class="section-label">' + dateStr + '</div>' +
+      '<div class="stat-grid">' +
+      '<div class="stat-card"><div class="stat-label">Net Profit</div><div class="stat-value" style="color:#22c55e">' + fmt(s.profit) + '</div><div class="stat-sub">' + s.margin + '% margin</div></div>' +
+      '<div class="stat-card"><div class="stat-label">Total Revenue</div><div class="stat-value" style="color:' + color + '">' + fmt(s.totalRev) + '</div><div class="stat-sub">' + jobs.length + ' jobs</div></div>' +
+      '<div class="stat-card"><div class="stat-label">Today Revenue</div><div class="stat-value" style="color:' + color + '">' + fmt(s.today.reduce(function(a,j){return a+j.revenue;},0)) + '</div><div class="stat-sub">' + s.today.length + ' jobs today</div></div>' +
+      '<div class="stat-card"><div class="stat-label">Layne Paid</div><div class="stat-value" style="color:#22d3ee">' + fmt(s.totalPaid) + '</div><div class="stat-sub">total</div></div>' +
+      '</div>' +
+      '<div class="section-label">Recent Jobs</div>' +
+      jobs.slice(0,3).map(function(j){return jobCard(j,color);}).join('');
   } else {
-    el.innerHTML = `
-      ${syncBanner()}
-      <div class="section-label">${new Date().toLocaleDateString([],{weekday:'long',month:'long',day:'numeric'})}</div>
-      <div class="stat-grid">
-        <div class="stat-card"><div class="stat-label">This Week</div><div class="stat-value" style="color:${color}">${fmt(s.layneWeek)}</div><div class="stat-sub">your pay</div></div>
-        <div class="stat-card"><div class="stat-label">All Time</div><div class="stat-value" style="color:${color}">${fmt(s.layneTotal)}</div><div class="stat-sub">total earned</div></div>
-        <div class="stat-card"><div class="stat-label">Jobs Today</div><div class="stat-value" style="color:${color}">${s.today.length}</div></div>
-        <div class="stat-card"><div class="stat-label">Status</div><div class="stat-value" style="color:${clockedIn?'#22c55e':'#374151'}">${clockedIn?'ON':'OFF'}</div><div class="stat-sub">${clockedIn?`since ${fmtTime(clockedIn)}`:''}</div></div>
-      </div>
-      <div class="section-label">Recent Jobs</div>
-      ${jobs.slice(0,3).map(j=>jobCard(j,color)).join('')}
-    `;
+    el.innerHTML = syncBanner() +
+      '<div class="section-label">' + dateStr + '</div>' +
+      '<div class="stat-grid">' +
+      '<div class="stat-card"><div class="stat-label">This Week</div><div class="stat-value" style="color:' + color + '">' + fmt(s.layneWeek) + '</div><div class="stat-sub">your pay</div></div>' +
+      '<div class="stat-card"><div class="stat-label">All Time</div><div class="stat-value" style="color:' + color + '">' + fmt(s.layneTotal) + '</div><div class="stat-sub">total earned</div></div>' +
+      '<div class="stat-card"><div class="stat-label">Jobs Today</div><div class="stat-value" style="color:' + color + '">' + s.today.length + '</div></div>' +
+      '<div class="stat-card"><div class="stat-label">Status</div><div class="stat-value" style="color:' + (clockedIn?'#22c55e':'#374151') + '">' + (clockedIn?'ON':'OFF') + '</div><div class="stat-sub">' + (clockedIn?('since ' + fmtTime(clockedIn)):'') + '</div></div>' +
+      '</div>' +
+      '<div class="section-label">Recent Jobs</div>' +
+      jobs.slice(0,3).map(function(j){return jobCard(j,color);}).join('');
   }
 }
-
+ 
 function jobCard(job, color) {
-  const exp = expandedJob === job.id;
-  return `
-    <div class="job-card ${exp?'expanded':''}" onclick="toggleExpand(${job.id})">
-      <div class="job-top">
-        <div>
-          <div class="job-title">${job.title}</div>
-          <div class="tags">
-            <span class="tag" style="color:${color};border-color:${color}40;background:${color}10">${job.type}</span>
-            <span class="tag" style="color:${statusColor(job.status)};border-color:${statusColor(job.status)}40;background:${statusColor(job.status)}10">${job.status}</span>
-            ${job.repeat?`<span class="tag" style="color:#a78bfa;border-color:#a78bfa40;background:#a78bfa10">REPEAT</span>`:''}
-          </div>
-        </div>
-        <div class="job-amount" style="color:${isOwner()?'#22c55e':'#22d3ee'}">${isOwner()?fmt(job.revenue):fmt(job.laynePayDay)}</div>
-      </div>
-      <div class="job-meta">${job.customer||'—'} · ${fmtDate(job.date)} · ${job.mileage||0}mi · ${job.loggedBy}</div>
-      <div class="job-expand ${exp?'open':''}">
-        ${job.address?`<div class="job-addr">📍 ${job.address}</div>`:''}
-        ${job.phone?`<div class="job-addr">📞 ${job.phone}</div>`:''}
-        ${isOwner()?`<div class="expand-grid">
-          <div class="expand-cell"><div class="expand-cell-label">QUOTED</div><div class="expand-cell-val" style="color:#a78bfa">${fmt(job.quote)}</div></div>
-          <div class="expand-cell"><div class="expand-cell-label">ACTUAL</div><div class="expand-cell-val" style="color:#f97316">${fmt(job.revenue)}</div></div>
-          <div class="expand-cell"><div class="expand-cell-label">DUMP</div><div class="expand-cell-val" style="color:#ef4444">${fmt(job.dumpFee)}</div></div>
-          <div class="expand-cell"><div class="expand-cell-label">NET</div><div class="expand-cell-val" style="color:#22c55e">${fmt(job.revenue-(job.dumpFee||0)-job.laynePayDay)}</div></div>
-        </div>`:''}
-        ${job.notes?`<div class="job-note">"${job.notes}"</div>`:''}
-        ${isOwner()?`<button onclick="event.stopPropagation();deleteJob(${job.id})" style="margin-top:10px;background:transparent;border:1px solid #ef444440;color:#ef4444;border-radius:6px;padding:6px 12px;font-size:10px;cursor:pointer;font-family:'IBM Plex Mono',monospace;letter-spacing:0.1em">DELETE JOB</button>`:''}
-      </div>
-    </div>
-  `;
+  var exp = expandedJob === job.id;
+  return '<div class="job-card ' + (exp?'expanded':'') + '" onclick="toggleExpand(' + job.id + ')">' +
+    '<div class="job-top"><div>' +
+    '<div class="job-title">' + job.title + '</div>' +
+    '<div class="tags">' +
+    '<span class="tag" style="color:' + color + ';border-color:' + color + '40;background:' + color + '10">' + job.type + '</span>' +
+    '<span class="tag" style="color:' + statusColor(job.status) + ';border-color:' + statusColor(job.status) + '40;background:' + statusColor(job.status) + '10">' + job.status + '</span>' +
+    (job.repeat ? '<span class="tag" style="color:#a78bfa;border-color:#a78bfa40;background:#a78bfa10">REPEAT</span>' : '') +
+    '</div></div>' +
+    '<div class="job-amount" style="color:' + (isOwner()?'#22c55e':'#22d3ee') + '">' + (isOwner()?fmt(job.revenue):fmt(job.laynePayDay)) + '</div>' +
+    '</div>' +
+    '<div class="job-meta">' + (job.customer||'—') + ' · ' + fmtDate(job.date) + ' · ' + (job.mileage||0) + 'mi · ' + job.loggedBy + '</div>' +
+    '<div class="job-expand ' + (exp?'open':'') + '">' +
+    (job.address ? '<div class="job-addr">📍 ' + job.address + '</div>' : '') +
+    (job.phone ? '<div class="job-addr">📞 ' + job.phone + '</div>' : '') +
+    (isOwner() ? '<div class="expand-grid">' +
+      '<div class="expand-cell"><div class="expand-cell-label">QUOTED</div><div class="expand-cell-val" style="color:#a78bfa">' + fmt(job.quote) + '</div></div>' +
+      '<div class="expand-cell"><div class="expand-cell-label">ACTUAL</div><div class="expand-cell-val" style="color:#f97316">' + fmt(job.revenue) + '</div></div>' +
+      '<div class="expand-cell"><div class="expand-cell-label">DUMP</div><div class="expand-cell-val" style="color:#ef4444">' + fmt(job.dumpFee) + '</div></div>' +
+      '<div class="expand-cell"><div class="expand-cell-label">NET</div><div class="expand-cell-val" style="color:#22c55e">' + fmt(job.revenue-(job.dumpFee||0)-job.laynePayDay) + '</div></div>' +
+      '</div>' : '') +
+    (job.notes ? '<div class="job-note">"' + job.notes + '"</div>' : '') +
+    (isOwner() ? '<button onclick="event.stopPropagation();deleteJob(' + job.id + ')" style="margin-top:10px;background:transparent;border:1px solid #ef444440;color:#ef4444;border-radius:6px;padding:6px 12px;font-size:10px;cursor:pointer;font-family:\'IBM Plex Mono\',monospace;letter-spacing:0.1em">DELETE JOB</button>' : '') +
+    '</div></div>';
 }
-
+ 
 function renderJobs(s, color) {
-  const el = document.getElementById('page-jobs');
-  const layneCalc = formData.laynePercent && formData.revenue
-    ? `<div class="pay-preview">Layne pay: ${fmt(parseFloat(formData.revenue)*(parseFloat(formData.laynePercent)/100))}</div>` : '';
-
-  el.innerHTML = `
-    <button class="primary-btn" style="border-color:${color};color:${color};background:${color}10" onclick="showForm=!showForm;render()">
-      ${showForm?'✕ CANCEL':'+ LOG NEW JOB'}
-    </button>
-    ${showForm ? `
-    <div class="form-box accent-border">
-      <div class="form-title" style="color:${color}">New Job Entry</div>
-      <div class="form-group"><label class="form-label">Job Title *</label><input class="form-input" value="${formData.title}" oninput="updateForm('title',this.value)" placeholder="e.g. Hot tub removal"></div>
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Customer</label><input class="form-input" value="${formData.customer}" oninput="updateForm('customer',this.value)" placeholder="Name"></div>
-        <div class="form-group"><label class="form-label">Phone</label><input class="form-input" type="tel" value="${formData.phone}" oninput="updateForm('phone',this.value)" placeholder="(727)..."></div>
-      </div>
-      <div class="form-group"><label class="form-label">Address</label><input class="form-input" value="${formData.address}" oninput="updateForm('address',this.value)" placeholder="Street, City"></div>
-      <div class="form-group"><label class="form-label">Job Type</label>
-        <select class="form-input" onchange="updateForm('type',this.value)">
-          ${JOB_TYPES.map(t=>`<option ${t===formData.type?'selected':''}>${t}</option>`).join('')}
-        </select>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Quoted $</label><input class="form-input" type="number" value="${formData.quote}" oninput="updateForm('quote',this.value)" placeholder="0.00"></div>
-        <div class="form-group"><label class="form-label">Actual $ *</label><input class="form-input" type="number" value="${formData.revenue}" oninput="updateForm('revenue',this.value)" placeholder="0.00"></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Dump Fee $</label><input class="form-input" type="number" value="${formData.dumpFee}" oninput="updateForm('dumpFee',this.value)" placeholder="35.00"></div>
-        <div class="form-group"><label class="form-label">Mileage</label><input class="form-input" type="number" value="${formData.mileage}" oninput="updateForm('mileage',this.value)" placeholder="0"></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Layne Pay $</label><input class="form-input" type="number" value="${formData.layneFlat}" oninput="updateForm('layneFlat',this.value);updateForm('laynePercent','')" placeholder="0.00"></div>
-        <div class="form-group"><label class="form-label">OR Layne %</label><input class="form-input" type="number" value="${formData.laynePercent}" oninput="updateForm('laynePercent',this.value);updateForm('layneFlat','')" placeholder="e.g. 30"></div>
-      </div>
-      ${layneCalc}
-      <div class="form-label" style="margin-bottom:8px">Status</div>
-      <div class="status-row">
-        ${STATUSES.map(s=>`<button class="status-opt" style="${formData.status===s?`border-color:${statusColor(s)};color:${statusColor(s)};background:${statusColor(s)}18`:''}" onclick="updateForm('status','${s}')">${s}</button>`).join('')}
-      </div>
-      <label class="repeat-check"><input type="checkbox" ${formData.repeat?'checked':''} onchange="updateForm('repeat',this.checked)"><span>Repeat Customer</span></label>
-      <div class="form-group"><label class="form-label">Notes</label><input class="form-input" value="${formData.notes}" oninput="updateForm('notes',this.value)" placeholder="Any details..."></div>
-      <div class="btn-row">
-        <button class="save-btn" style="background:${color};color:#07070f" onclick="submitJob()">SAVE JOB</button>
-        <button class="cancel-btn" onclick="showForm=false;render()">✕</button>
-      </div>
-    </div>` : ''}
-    ${jobs.length===0?'<div class="empty-state">No jobs logged yet.</div>':''}
-    ${jobs.map(j=>jobCard(j,color)).join('')}
-  `;
+  var el = document.getElementById('page-jobs');
+  var layneCalc = formData.laynePercent && formData.revenue
+    ? '<div class="pay-preview">Layne pay: ' + fmt(parseFloat(formData.revenue)*(parseFloat(formData.laynePercent)/100)) + '</div>' : '';
+  var html = '<button class="primary-btn" style="border-color:' + color + ';color:' + color + ';background:' + color + '10" onclick="showForm=!showForm;render()">' + (showForm?'✕ CANCEL':'+ LOG NEW JOB') + '</button>';
+  if (showForm) {
+    html += '<div class="form-box accent-border">' +
+      '<div class="form-title" style="color:' + color + '">New Job Entry</div>' +
+      '<div class="form-group"><label class="form-label">Job Title *</label><input class="form-input" value="' + formData.title + '" oninput="updateForm(\'title\',this.value)" placeholder="e.g. Hot tub removal"></div>' +
+      '<div class="form-row"><div class="form-group"><label class="form-label">Customer</label><input class="form-input" value="' + formData.customer + '" oninput="updateForm(\'customer\',this.value)" placeholder="Name"></div>' +
+      '<div class="form-group"><label class="form-label">Phone</label><input class="form-input" type="tel" value="' + formData.phone + '" oninput="updateForm(\'phone\',this.value)" placeholder="(727)..."></div></div>' +
+      '<div class="form-group"><label class="form-label">Address</label><input class="form-input" value="' + formData.address + '" oninput="updateForm(\'address\',this.value)" placeholder="Street, City"></div>' +
+      '<div class="form-group"><label class="form-label">Job Type</label><select class="form-input" onchange="updateForm(\'type\',this.value)">' +
+      JOB_TYPES.map(function(t){return '<option ' + (t===formData.type?'selected':'') + '>' + t + '</option>';}).join('') +
+      '</select></div>' +
+      '<div class="form-row"><div class="form-group"><label class="form-label">Quoted $</label><input class="form-input" type="number" value="' + formData.quote + '" oninput="updateForm(\'quote\',this.value)" placeholder="0.00"></div>' +
+      '<div class="form-group"><label class="form-label">Actual $ *</label><input class="form-input" type="number" value="' + formData.revenue + '" oninput="updateForm(\'revenue\',this.value)" placeholder="0.00"></div></div>' +
+      '<div class="form-row"><div class="form-group"><label class="form-label">Dump Fee $</label><input class="form-input" type="number" value="' + formData.dumpFee + '" oninput="updateForm(\'dumpFee\',this.value)" placeholder="35.00"></div>' +
+      '<div class="form-group"><label class="form-label">Mileage</label><input class="form-input" type="number" value="' + formData.mileage + '" oninput="updateForm(\'mileage\',this.value)" placeholder="0"></div></div>' +
+      '<div class="form-row"><div class="form-group"><label class="form-label">Layne Pay $</label><input class="form-input" type="number" value="' + formData.layneFlat + '" oninput="updateForm(\'layneFlat\',this.value);updateForm(\'laynePercent\',\'\')" placeholder="0.00"></div>' +
+      '<div class="form-group"><label class="form-label">OR Layne %</label><input class="form-input" type="number" value="' + formData.laynePercent + '" oninput="updateForm(\'laynePercent\',this.value);updateForm(\'layneFlat\',\'\')" placeholder="e.g. 30"></div></div>' +
+      layneCalc +
+      '<div class="form-label" style="margin-bottom:8px">Status</div>' +
+      '<div class="status-row">' +
+      STATUSES.map(function(st){return '<button class="status-opt" style="' + (formData.status===st?'border-color:'+statusColor(st)+';color:'+statusColor(st)+';background:'+statusColor(st)+'18':'') + '" onclick="updateForm(\'status\',\'' + st + '\')">' + st + '</button>';}).join('') +
+      '</div>' +
+      '<label class="repeat-check"><input type="checkbox" ' + (formData.repeat?'checked':'') + ' onchange="updateForm(\'repeat\',this.checked)"><span>Repeat Customer</span></label>' +
+      '<div class="form-group"><label class="form-label">Notes</label><input class="form-input" value="' + formData.notes + '" oninput="updateForm(\'notes\',this.value)" placeholder="Any details..."></div>' +
+      '<div class="btn-row"><button class="save-btn" style="background:' + color + ';color:#07070f" onclick="submitJob()">SAVE JOB</button>' +
+      '<button class="cancel-btn" onclick="showForm=false;render()">✕</button></div>' +
+      '</div>';
+  }
+  html += jobs.length===0 ? '<div class="empty-state">No jobs logged yet.</div>' : '';
+  html += jobs.map(function(j){return jobCard(j,color);}).join('');
+  el.innerHTML = html;
 }
-
+ 
 function renderStats(s) {
-  const el = document.getElementById('page-stats');
-  const maxRev = Math.max(...JOB_TYPES.map(t=>jobs.filter(j=>j.type===t).reduce((a,j)=>a+j.revenue,0)),1);
-  const byType = JOB_TYPES.map(t=>({
-    t, rev:jobs.filter(j=>j.type===t).reduce((a,j)=>a+j.revenue,0),
-    count:jobs.filter(j=>j.type===t).length
-  })).filter(x=>x.count>0).sort((a,b)=>b.rev-a.rev);
-
-  el.innerHTML = `
-    <div class="section-label">Business Overview</div>
-    <div class="stat-grid">
-      <div class="stat-card"><div class="stat-label">Total Revenue</div><div class="stat-value" style="color:#f97316">${fmt(s.totalRev)}</div></div>
-      <div class="stat-card"><div class="stat-label">Net Profit</div><div class="stat-value" style="color:#22c55e">${fmt(s.profit)}</div><div class="stat-sub">${s.margin}% margin</div></div>
-      <div class="stat-card"><div class="stat-label">Dump Fees</div><div class="stat-value" style="color:#ef4444">${fmt(s.totalDump)}</div></div>
-      <div class="stat-card"><div class="stat-label">Paid Out</div><div class="stat-value" style="color:#22d3ee">${fmt(s.totalPaid)}</div></div>
-      <div class="stat-card"><div class="stat-label">Total Jobs</div><div class="stat-value" style="color:#f97316">${jobs.length}</div></div>
-      <div class="stat-card"><div class="stat-label">Avg Job</div><div class="stat-value" style="color:#a78bfa">${fmt(jobs.length?s.totalRev/jobs.length:0)}</div></div>
-      <div class="stat-card"><div class="stat-label">Repeat Clients</div><div class="stat-value" style="color:#a78bfa">${jobs.filter(j=>j.repeat).length}</div></div>
-      <div class="stat-card"><div class="stat-label">Completed</div><div class="stat-value" style="color:#22c55e">${jobs.filter(j=>j.status==='completed').length}</div></div>
-    </div>
-    <div class="section-label">Revenue by Job Type</div>
-    ${byType.map(x=>`
-      <div class="type-bar">
-        <div class="type-bar-top">
-          <div><div class="type-name">${x.t}</div><div class="tags" style="margin-top:4px">
-            <span class="tag" style="color:#f97316;border-color:#f9731640;background:#f9731610">${x.count} job${x.count!==1?'s':''}</span>
-            <span class="tag" style="color:#a78bfa;border-color:#a78bfa40;background:#a78bfa10">${fmt(x.rev/x.count)} avg</span>
-          </div></div>
-          <div class="type-rev">${fmt(x.rev)}</div>
-        </div>
-        <div class="type-track"><div class="type-fill" style="width:${(x.rev/maxRev*100).toFixed(0)}%"></div></div>
-      </div>
-    `).join('')}
-    ${byType.length===0?'<div class="empty-state">Log jobs to see stats.</div>':''}
-  `;
+  var el = document.getElementById('page-stats');
+  var maxRev = Math.max.apply(null, JOB_TYPES.map(function(t){return jobs.filter(function(j){return j.type===t;}).reduce(function(a,j){return a+j.revenue;},0);}));
+  maxRev = maxRev || 1;
+  var byType = JOB_TYPES.map(function(t){
+    return { t:t, rev:jobs.filter(function(j){return j.type===t;}).reduce(function(a,j){return a+j.revenue;},0), count:jobs.filter(function(j){return j.type===t;}).length };
+  }).filter(function(x){return x.count>0;}).sort(function(a,b){return b.rev-a.rev;});
+ 
+  el.innerHTML = '<div class="section-label">Business Overview</div>' +
+    '<div class="stat-grid">' +
+    '<div class="stat-card"><div class="stat-label">Total Revenue</div><div class="stat-value" style="color:#f97316">' + fmt(s.totalRev) + '</div></div>' +
+    '<div class="stat-card"><div class="stat-label">Net Profit</div><div class="stat-value" style="color:#22c55e">' + fmt(s.profit) + '</div><div class="stat-sub">' + s.margin + '% margin</div></div>' +
+    '<div class="stat-card"><div class="stat-label">Dump Fees</div><div class="stat-value" style="color:#ef4444">' + fmt(s.totalDump) + '</div></div>' +
+    '<div class="stat-card"><div class="stat-label">Paid Out</div><div class="stat-value" style="color:#22d3ee">' + fmt(s.totalPaid) + '</div></div>' +
+    '<div class="stat-card"><div class="stat-label">Total Jobs</div><div class="stat-value" style="color:#f97316">' + jobs.length + '</div></div>' +
+    '<div class="stat-card"><div class="stat-label">Avg Job</div><div class="stat-value" style="color:#a78bfa">' + fmt(jobs.length?s.totalRev/jobs.length:0) + '</div></div>' +
+    '<div class="stat-card"><div class="stat-label">Repeat Clients</div><div class="stat-value" style="color:#a78bfa">' + jobs.filter(function(j){return j.repeat;}).length + '</div></div>' +
+    '<div class="stat-card"><div class="stat-label">Completed</div><div class="stat-value" style="color:#22c55e">' + jobs.filter(function(j){return j.status==='completed';}).length + '</div></div>' +
+    '</div>' +
+    '<div class="section-label">Revenue by Job Type</div>' +
+    byType.map(function(x){
+      return '<div class="type-bar"><div class="type-bar-top"><div><div class="type-name">' + x.t + '</div><div class="tags" style="margin-top:4px">' +
+        '<span class="tag" style="color:#f97316;border-color:#f9731640;background:#f9731610">' + x.count + ' job' + (x.count!==1?'s':'') + '</span>' +
+        '<span class="tag" style="color:#a78bfa;border-color:#a78bfa40;background:#a78bfa10">' + fmt(x.rev/x.count) + ' avg</span>' +
+        '</div></div><div class="type-rev">' + fmt(x.rev) + '</div></div>' +
+        '<div class="type-track"><div class="type-fill" style="width:' + (x.rev/maxRev*100).toFixed(0) + '%"></div></div></div>';
+    }).join('') +
+    (byType.length===0 ? '<div class="empty-state">Log jobs to see stats.</div>' : '');
 }
-
+ 
 function renderPay(s) {
-  const el = document.getElementById('page-pay');
-  el.innerHTML = `
-    <div class="section-label">Your Pay</div>
-    <div class="stat-grid">
-      <div class="stat-card"><div class="stat-label">This Week</div><div class="stat-value" style="color:#22d3ee">${fmt(s.layneWeek)}</div></div>
-      <div class="stat-card"><div class="stat-label">All Time</div><div class="stat-value" style="color:#22d3ee">${fmt(s.layneTotal)}</div></div>
-    </div>
-    <div class="section-label">Pay History</div>
-    ${jobs.map(j=>`
-      <div class="job-card" style="cursor:default">
-        <div class="job-top">
-          <div><div class="job-title">${j.title}</div><div class="job-meta">${fmtDate(j.date)} · ${j.customer||'—'}</div></div>
-          <div class="job-amount" style="color:#22d3ee">${fmt(j.laynePayDay)}</div>
-        </div>
-      </div>
-    `).join('')}
-    ${jobs.length===0?'<div class="empty-state">No pay records yet.</div>':''}
-  `;
+  var el = document.getElementById('page-pay');
+  el.innerHTML = '<div class="section-label">Your Pay</div>' +
+    '<div class="stat-grid">' +
+    '<div class="stat-card"><div class="stat-label">This Week</div><div class="stat-value" style="color:#22d3ee">' + fmt(s.layneWeek) + '</div></div>' +
+    '<div class="stat-card"><div class="stat-label">All Time</div><div class="stat-value" style="color:#22d3ee">' + fmt(s.layneTotal) + '</div></div>' +
+    '</div>' +
+    '<div class="section-label">Pay History</div>' +
+    jobs.map(function(j){
+      return '<div class="job-card" style="cursor:default"><div class="job-top"><div><div class="job-title">' + j.title + '</div><div class="job-meta">' + fmtDate(j.date) + ' · ' + (j.customer||'—') + '</div></div><div class="job-amount" style="color:#22d3ee">' + fmt(j.laynePayDay) + '</div></div></div>';
+    }).join('') +
+    (jobs.length===0 ? '<div class="empty-state">No pay records yet.</div>' : '');
 }
-
+ 
 function renderChecklist() {
-  const el = document.getElementById('page-checklist');
-  const items = [
+  var el = document.getElementById('page-checklist');
+  var items = [
     {key:'trailer',label:'🔗 Trailer hitched & secured'},
     {key:'fuel',label:'⛽ Truck fueled up'},
     {key:'straps',label:'🪢 Straps & tie downs loaded'},
@@ -722,59 +587,41 @@ function renderChecklist() {
     {key:'gloves',label:'🧤 Gloves & PPE'},
     {key:'spray',label:'🪳 Roach spray if needed'},
   ];
-  const done = items.filter(i=>checklistState[i.key]).length;
-  const pct = (done/items.length*100).toFixed(0);
-
-  el.innerHTML = `
-    <div class="section-label">Pre-Job Checklist</div>
-    <div class="checklist-card">
-      ${items.map(i=>`
-        <div class="check-item" onclick="toggleCheck('${i.key}')">
-          <div class="check-box ${checklistState[i.key]?'checked':''}">${checklistState[i.key]?'✓':''}</div>
-          <div class="check-text ${checklistState[i.key]?'done':''}">${i.label}</div>
-        </div>
-      `).join('')}
-      <div class="check-progress">
-        ${done} / ${items.length} COMPLETE
-        <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
-      </div>
-    </div>
-    <div style="margin-top:12px">
-      <button onclick="checklistState={trailer:false,fuel:false,straps:false,bags:false,gloves:false,spray:false};render()" style="width:100%;background:transparent;border:1px solid #16162a;color:#4b5563;border-radius:10px;padding:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;cursor:pointer;letter-spacing:0.1em">RESET CHECKLIST</button>
-    </div>
-  `;
+  var done = items.filter(function(i){return checklistState[i.key];}).length;
+  var pct = (done/items.length*100).toFixed(0);
+  el.innerHTML = '<div class="section-label">Pre-Job Checklist</div>' +
+    '<div class="checklist-card">' +
+    items.map(function(i){
+      return '<div class="check-item" onclick="toggleCheck(\'' + i.key + '\')">' +
+        '<div class="check-box ' + (checklistState[i.key]?'checked':'') + '">' + (checklistState[i.key]?'✓':'') + '</div>' +
+        '<div class="check-text ' + (checklistState[i.key]?'done':'') + '">' + i.label + '</div>' +
+        '</div>';
+    }).join('') +
+    '<div class="check-progress">' + done + ' / ' + items.length + ' COMPLETE' +
+    '<div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div></div>' +
+    '</div>' +
+    '<div style="margin-top:12px"><button onclick="checklistState={trailer:false,fuel:false,straps:false,bags:false,gloves:false,spray:false};render()" style="width:100%;background:transparent;border:1px solid #16162a;color:#4b5563;border-radius:10px;padding:12px;font-family:\'IBM Plex Mono\',monospace;font-size:11px;cursor:pointer;letter-spacing:0.1em">RESET CHECKLIST</button></div>';
 }
-
+ 
 function renderSettings() {
-  const el = document.getElementById('page-settings');
-  el.innerHTML = `
-    <div class="section-label">Settings</div>
-    <div class="config-section">
-      <div class="config-title">Google Sheets Sync</div>
-      <div class="config-text">
-        To sync data between your phone and Layne's, connect a Google Apps Script web app.<br><br>
-        1. Go to <code>sheets.google.com</code> and create a new sheet<br>
-        2. Click Extensions → Apps Script<br>
-        3. Paste the sync script (ask River for it)<br>
-        4. Deploy as Web App → Anyone<br>
-        5. Paste the URL below
-      </div>
-      <div class="form-group">
-        <label class="form-label">Google Apps Script URL</label>
-        <input class="form-input" value="${sheetUrl}" oninput="sheetUrl=this.value;localStorage.setItem('jb_sheet_url',this.value)" placeholder="https://script.google.com/macros/s/...">
-      </div>
-      <button onclick="fetchFromSheet()" style="width:100%;background:transparent;border:1px solid #f9731640;color:#f97316;border-radius:10px;padding:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;cursor:pointer;letter-spacing:0.1em;margin-bottom:8px">TEST CONNECTION</button>
-    </div>
-    <div class="config-section">
-      <div class="config-title">Local Data</div>
-      <div class="config-text">Jobs are saved locally on this device. Connect Google Sheets to share with Layne.</div>
-      <div class="stat-grid" style="margin-top:8px">
-        <div class="stat-card"><div class="stat-label">Jobs Stored</div><div class="stat-value" style="color:#f97316">${jobs.length}</div></div>
-        <div class="stat-card"><div class="stat-label">Sync Status</div><div class="stat-value" style="font-size:14px;color:${sheetUrl?'#22c55e':'#6b7280'}">${sheetUrl?'LINKED':'NOT SET'}</div></div>
-      </div>
-      <button onclick="if(confirm('Clear all job data?')){jobs=[];saveJobs();render()}" style="width:100%;background:transparent;border:1px solid #ef444430;color:#ef4444;border-radius:10px;padding:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;cursor:pointer;letter-spacing:0.1em;margin-top:8px">CLEAR ALL DATA</button>
-    </div>
-  `;
+  var el = document.getElementById('page-settings');
+  el.innerHTML = '<div class="section-label">Settings</div>' +
+    '<div class="config-section">' +
+    '<div class="config-title">Google Sheets Sync</div>' +
+    '<div class="config-text">Paste your Google Apps Script web app URL below to sync jobs between devices.</div>' +
+    '<div class="form-group"><label class="form-label">Google Apps Script URL</label>' +
+    '<input class="form-input" value="' + sheetUrl + '" oninput="sheetUrl=this.value;localStorage.setItem(\'jb_sheet_url\',this.value)" placeholder="https://script.google.com/macros/s/..."></div>' +
+    '<button onclick="fetchFromSheet()" style="width:100%;background:transparent;border:1px solid #f9731640;color:#f97316;border-radius:10px;padding:12px;font-family:\'IBM Plex Mono\',monospace;font-size:11px;cursor:pointer;letter-spacing:0.1em;margin-bottom:8px">TEST CONNECTION</button>' +
+    '</div>' +
+    '<div class="config-section">' +
+    '<div class="config-title">Local Data</div>' +
+    '<div class="config-text">Jobs are saved locally on this device. Connect Google Sheets to share with Layne.</div>' +
+    '<div class="stat-grid" style="margin-top:8px">' +
+    '<div class="stat-card"><div class="stat-label">Jobs Stored</div><div class="stat-value" style="color:#f97316">' + jobs.length + '</div></div>' +
+    '<div class="stat-card"><div class="stat-label">Sync Status</div><div class="stat-value" style="font-size:14px;color:' + (sheetUrl?'#22c55e':'#6b7280') + '">' + (sheetUrl?'LINKED':'NOT SET') + '</div></div>' +
+    '</div>' +
+    '<button onclick="if(confirm(\'Clear all job data?\')){jobs=[];saveJobs();render()}" style="width:100%;background:transparent;border:1px solid #ef444430;color:#ef4444;border-radius:10px;padding:12px;font-family:\'IBM Plex Mono\',monospace;font-size:10px;cursor:pointer;letter-spacing:0.1em;margin-top:8px">CLEAR ALL DATA</button>' +
+    '</div>';
 }
 </script>
 </body>
