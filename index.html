@@ -62,7 +62,7 @@
   .job-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
   .job-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: #fff; line-height: 1.1; }
   .job-amount { font-family: 'Bebas Neue', sans-serif; font-size: 20px; line-height: 1; }
-  .job-meta { font-size: 11px; color: var(--muted); margin-top: 6px; }
+  .job-meta { font-size: 13px; color: var(--muted); margin-top: 6px; }
   .tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0; }
   .tag { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; border: 1px solid; }
   .job-expand { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); display: none; }
@@ -70,9 +70,9 @@
   .expand-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
   .expand-cell { background: var(--bg); border-radius: 8px; padding: 8px; text-align: center; }
   .expand-cell-label { font-size: 8px; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 4px; }
-  .expand-cell-val { font-family: 'Bebas Neue', sans-serif; font-size: 15px; }
-  .job-note { font-size: 11px; color: var(--muted); font-style: italic; margin-top: 6px; }
-  .job-addr { font-size: 11px; color: var(--dim); margin-bottom: 4px; }
+  .expand-cell-val { font-family: 'Bebas Neue', sans-serif; font-size: 17px; }
+  .job-note { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 6px; }
+  .job-addr { font-size: 13px; color: var(--dim); margin-bottom: 4px; }
   .primary-btn { width: 100%; padding: 15px; border: 1px solid; border-radius: 12px; font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.1em; cursor: pointer; transition: all 0.15s; margin-bottom: 16px; }
   .form-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
   .form-box.accent-border { border-color: rgba(249,115,22,0.4); }
@@ -122,17 +122,40 @@
   .pin-btn { padding: 18px; border-radius: 12px; border: 1px solid #16162a; background: #0d0d1a; color: #e2e8f0; font-family: 'Bebas Neue', sans-serif; font-size: 24px; cursor: pointer; }
   .pin-btn-blank { padding: 18px; border-radius: 12px; border: 1px solid transparent; background: transparent; cursor: default; }
   /* Clock log */
-  .clock-log-entry { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
-  .clock-log-user { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 6px; }
-  .clock-log-row { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); margin-bottom: 2px; }
-  .clock-log-time { font-size: 12px; font-weight: 700; }
-  .clock-log-duration { font-family: 'Bebas Neue', sans-serif; font-size: 18px; }
+  .clock-log-entry { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 8px; }
+  .clock-log-user { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+  .clock-log-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  .clock-log-time { font-size: 13px; font-weight: 700; color: var(--text); }
+  .clock-log-duration { font-family: 'Bebas Neue', sans-serif; font-size: 20px; }
+  .clock-log-note { font-size: 12px; color: var(--muted); font-style: italic; margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--border); }
+  .hours-summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
   /* Edit form inline */
   .edit-form-box { background: rgba(249,115,22,0.05); border: 1px solid rgba(249,115,22,0.3); border-radius: 12px; padding: 16px; margin-top: 12px; }
   .edit-form-title { font-size: 9px; color: var(--orange); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 14px; }
+  /* Clock note modal */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .modal-box { background: var(--card); border: 1px solid rgba(239,68,68,0.4); border-radius: 16px; padding: 24px; width: 100%; max-width: 340px; }
+  .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--red); margin-bottom: 4px; }
+  .modal-sub { font-size: 11px; color: var(--muted); margin-bottom: 16px; letter-spacing: 0.1em; }
 </style>
 </head>
 <body>
+
+<!-- CLOCK-OUT NOTE MODAL -->
+<div id="clockout-modal" class="modal-overlay" style="display:none">
+  <div class="modal-box">
+    <div class="modal-title">CLOCK OUT</div>
+    <div class="modal-sub">Add a note for this session? (optional)</div>
+    <div class="form-group">
+      <label class="form-label">Session Note</label>
+      <input class="form-input" id="clockout-note-input" placeholder="e.g. Sherry job, NPR cleanout..." style="font-size:14px">
+    </div>
+    <div class="btn-row">
+      <button class="save-btn" style="background:#ef4444;color:#fff" onclick="confirmClockOut()">CLOCK OUT</button>
+      <button class="cancel-btn" onclick="document.getElementById('clockout-modal').style.display='none'">✕</button>
+    </div>
+  </div>
+</div>
 
 <!-- PIN SCREEN -->
 <div id="pin-screen" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;background:radial-gradient(ellipse at 50% 0%,#f9731608 0%,transparent 70%)">
@@ -140,7 +163,7 @@
     <div class="sub">Junk Bros FL LLC</div>
     <div class="brand">CREW OS</div>
     <div class="login-divider"></div>
-    <div class="version">v2.2 — Synced</div>
+    <div class="version">v2.3 — Synced</div>
   </div>
   <div style="width:100%;max-width:300px">
     <div style="font-size:9px;color:#4b5563;letter-spacing:0.3em;text-transform:uppercase;text-align:center;margin-bottom:16px">Enter PIN</div>
@@ -158,7 +181,7 @@
     <div class="sub">Junk Bros FL LLC</div>
     <div class="brand">CREW OS</div>
     <div class="login-divider"></div>
-    <div class="version">v2.2 — Synced</div>
+    <div class="version">v2.3 — Synced</div>
   </div>
   <button class="login-btn login-btn-owner" onclick="login('tyler')">
     🔑 Tyler
@@ -251,6 +274,8 @@ var currentUser = null;
 var clockedIn = null;
 var expandedJob = null;
 var editingJobId = null;
+var editingClockIdx = null;
+var editClockData = {};
 var showForm = false;
 var currentPage = 'dashboard';
 var syncMsg = '';
@@ -279,9 +304,27 @@ var fmtDuration = function(startIso, endIso) {
   var mins = Math.floor((ms % 3600000) / 60000);
   return hrs + 'h ' + mins + 'm';
 };
+var durationMs = function(startIso, endIso) {
+  var ms = new Date(endIso) - new Date(startIso);
+  return ms > 0 ? ms : 0;
+};
 var statusColor = function(s) { return s==='completed'?'#22c55e':s==='in-progress'?'#f97316':'#6b7280'; };
 var isOwner = function() { return currentUser === 'tyler'; };
 var ac = function() { return isOwner() ? '#f97316' : '#22d3ee'; };
+
+// Convert local datetime-local input value to ISO string
+function localInputToISO(val) {
+  if (!val) return null;
+  return new Date(val).toISOString();
+}
+
+// Convert ISO to datetime-local input format
+function isoToLocalInput(iso) {
+  if (!iso) return '';
+  var d = new Date(iso);
+  var pad = function(n) { return n < 10 ? '0' + n : n; };
+  return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate()) + 'T' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+}
 
 function saveJobs() {
   localStorage.setItem('jb_jobs', JSON.stringify(jobs));
@@ -290,6 +333,25 @@ function saveJobs() {
 
 function saveClockLog() {
   localStorage.setItem('jb_clock_log', JSON.stringify(clockLog));
+}
+
+// ─── HOURS STATS ─────────────────────────────────────────────────────────────
+function getHoursStats() {
+  var weekAgo = new Date(Date.now() - 7 * 86400000);
+  var users = ['tyler', 'layne'];
+  var result = {};
+  users.forEach(function(u) {
+    var userLog = clockLog.filter(function(e) { return e.user === u; });
+    var weekLog = userLog.filter(function(e) { return new Date(e.clockIn) >= weekAgo; });
+    var totalMs = userLog.reduce(function(s, e) { return s + durationMs(e.clockIn, e.clockOut); }, 0);
+    var weekMs = weekLog.reduce(function(s, e) { return s + durationMs(e.clockIn, e.clockOut); }, 0);
+    result[u] = {
+      totalHrs: (totalMs / 3600000).toFixed(1),
+      weekHrs: (weekMs / 3600000).toFixed(1),
+      sessions: userLog.length
+    };
+  });
+  return result;
 }
 
 // ─── GOOGLE SHEETS SYNC ──────────────────────────────────────────────────────
@@ -350,19 +412,71 @@ function logout() {
 // ─── CLOCK ────────────────────────────────────────────────────────────────────
 function toggleClock() {
   if (clockedIn) {
-    var entry = {
-      user: currentUser,
-      clockIn: clockedIn,
-      clockOut: new Date().toISOString()
-    };
-    clockLog.unshift(entry);
-    saveClockLog();
-    clockedIn = null;
-    localStorage.removeItem('jb_clock_' + currentUser);
+    // Show note modal before clocking out
+    document.getElementById('clockout-note-input').value = '';
+    document.getElementById('clockout-modal').style.display = 'flex';
   } else {
     clockedIn = new Date().toISOString();
     localStorage.setItem('jb_clock_' + currentUser, JSON.stringify(clockedIn));
+    render();
   }
+}
+
+function confirmClockOut() {
+  var note = document.getElementById('clockout-note-input').value.trim();
+  var entry = {
+    user: currentUser,
+    clockIn: clockedIn,
+    clockOut: new Date().toISOString(),
+    note: note || ''
+  };
+  clockLog.unshift(entry);
+  saveClockLog();
+  clockedIn = null;
+  localStorage.removeItem('jb_clock_' + currentUser);
+  document.getElementById('clockout-modal').style.display = 'none';
+  render();
+}
+
+// ─── CLOCK LOG EDITING (Tyler only) ──────────────────────────────────────────
+function startEditClock(idx) {
+  if (!isOwner()) return;
+  editingClockIdx = idx;
+  var entry = clockLog[idx];
+  editClockData = {
+    clockIn: isoToLocalInput(entry.clockIn),
+    clockOut: isoToLocalInput(entry.clockOut),
+    note: entry.note || ''
+  };
+  render();
+}
+
+function cancelEditClock() {
+  editingClockIdx = null;
+  render();
+}
+
+function saveEditClock(idx) {
+  if (!isOwner()) return;
+  var inISO = localInputToISO(editClockData.clockIn);
+  var outISO = localInputToISO(editClockData.clockOut);
+  if (!inISO || !outISO) return;
+  clockLog[idx] = Object.assign({}, clockLog[idx], {
+    clockIn: inISO,
+    clockOut: outISO,
+    note: editClockData.note || ''
+  });
+  saveClockLog();
+  editingClockIdx = null;
+  render();
+}
+
+function deleteClockEntry(idx) {
+  if (!isOwner()) return;
+  if (!confirm('Delete this clock entry?')) return;
+  clockLog.splice(idx, 1);
+  saveClockLog();
+  editingClockIdx = null;
   render();
 }
 
@@ -371,6 +485,7 @@ function setPage(page) {
   currentPage = page;
   showForm = false;
   editingJobId = null;
+  editingClockIdx = null;
   render();
 }
 
@@ -741,6 +856,26 @@ function renderHours(color) {
   var el = document.getElementById('page-hours');
   if (!el) return;
 
+  var hs = getHoursStats();
+
+  // Hours summary cards - Tyler sees both, Layne sees only his
+  var summaryHtml = '';
+  if (isOwner()) {
+    summaryHtml = '<div class="section-label">Hours Summary</div>' +
+      '<div class="hours-summary-grid">' +
+      '<div class="stat-card"><div class="stat-label" style="color:#f97316">Tyler · This Week</div><div class="stat-value" style="color:#f97316">'+hs.tyler.weekHrs+'h</div><div class="stat-sub">'+hs.tyler.sessions+' sessions total</div></div>' +
+      '<div class="stat-card"><div class="stat-label" style="color:#22d3ee">Layne · This Week</div><div class="stat-value" style="color:#22d3ee">'+hs.layne.weekHrs+'h</div><div class="stat-sub">'+hs.layne.sessions+' sessions total</div></div>' +
+      '<div class="stat-card"><div class="stat-label" style="color:#f97316">Tyler · All Time</div><div class="stat-value" style="color:#f97316">'+hs.tyler.totalHrs+'h</div></div>' +
+      '<div class="stat-card"><div class="stat-label" style="color:#22d3ee">Layne · All Time</div><div class="stat-value" style="color:#22d3ee">'+hs.layne.totalHrs+'h</div></div>' +
+      '</div>';
+  } else {
+    summaryHtml = '<div class="section-label">Your Hours</div>' +
+      '<div class="hours-summary-grid">' +
+      '<div class="stat-card"><div class="stat-label">This Week</div><div class="stat-value" style="color:'+color+'">'+hs.layne.weekHrs+'h</div></div>' +
+      '<div class="stat-card"><div class="stat-label">All Time</div><div class="stat-value" style="color:'+color+'">'+hs.layne.totalHrs+'h</div><div class="stat-sub">'+hs.layne.sessions+' sessions</div></div>' +
+      '</div>';
+  }
+
   // Current session if clocked in
   var currentSession = '';
   if (clockedIn) {
@@ -755,23 +890,49 @@ function renderHours(color) {
       '</div>';
   }
 
-  // Filter log for current user unless owner
+  // Filter log
   var log = isOwner() ? clockLog : clockLog.filter(function(e){return e.user===currentUser;});
 
-  var logHtml = log.length === 0
-    ? '<div class="empty-state">No clock-in history yet.</div>'
-    : log.map(function(entry) {
-        var userColor = entry.user === 'tyler' ? '#f97316' : '#22d3ee';
-        return '<div class="clock-log-entry">' +
-          '<div class="clock-log-user" style="color:'+userColor+'">' + entry.user.toUpperCase() + '</div>' +
-          '<div class="clock-log-row"><span>In:</span><span class="clock-log-time">' + fmtTime(entry.clockIn) + ' · ' + fmtDate(entry.clockIn) + '</span></div>' +
-          '<div class="clock-log-row"><span>Out:</span><span class="clock-log-time">' + fmtTime(entry.clockOut) + ' · ' + fmtDate(entry.clockOut) + '</span></div>' +
-          '<div class="clock-log-row" style="margin-top:6px"><span>Total:</span><span class="clock-log-duration" style="color:'+userColor+'">' + fmtDuration(entry.clockIn, entry.clockOut) + '</span></div>' +
-          '</div>';
-      }).join('');
+  var logHtml = '';
+  if (log.length === 0) {
+    logHtml = '<div class="empty-state">No clock-in history yet.</div>';
+  } else {
+    logHtml = log.map(function(entry, i) {
+      // Find real index in clockLog for editing
+      var realIdx = clockLog.indexOf(entry);
+      var userColor = entry.user === 'tyler' ? '#f97316' : '#22d3ee';
+      var isEditingThis = editingClockIdx === realIdx;
 
-  el.innerHTML = '<div class="section-label">Hours Log</div>' +
-    currentSession +
+      if (isEditingThis && isOwner()) {
+        // Edit form for this entry
+        return '<div class="clock-log-entry" style="border-color:rgba(249,115,22,0.4)">' +
+          '<div class="clock-log-user" style="color:#f97316">✏ EDIT ENTRY — ' + entry.user.toUpperCase() + '</div>' +
+          '<div class="form-group" style="margin-bottom:10px"><label class="form-label">Clock In Time</label>' +
+          '<input class="form-input" type="datetime-local" value="' + isoToLocalInput(entry.clockIn) + '" oninput="editClockData.clockIn=this.value" style="font-size:13px"></div>' +
+          '<div class="form-group" style="margin-bottom:10px"><label class="form-label">Clock Out Time</label>' +
+          '<input class="form-input" type="datetime-local" value="' + isoToLocalInput(entry.clockOut) + '" oninput="editClockData.clockOut=this.value" style="font-size:13px"></div>' +
+          '<div class="form-group" style="margin-bottom:12px"><label class="form-label">Session Note</label>' +
+          '<input class="form-input" value="' + (editClockData.note||'') + '" oninput="editClockData.note=this.value" placeholder="e.g. Sherry job" style="font-size:13px"></div>' +
+          '<div class="btn-row">' +
+          '<button class="save-btn" style="background:#f97316;color:#07070f" onclick="saveEditClock(' + realIdx + ')">SAVE</button>' +
+          '<button onclick="deleteClockEntry('+realIdx+')" style="background:transparent;border:1px solid #ef444440;color:#ef4444;border-radius:10px;padding:13px 16px;cursor:pointer;font-family:\'IBM Plex Mono\',monospace;font-size:11px">DELETE</button>' +
+          '<button class="cancel-btn" onclick="cancelEditClock()">✕</button>' +
+          '</div></div>';
+      }
+
+      return '<div class="clock-log-entry">' +
+        '<div class="clock-log-user" style="color:'+userColor+'">' + entry.user.toUpperCase() + '</div>' +
+        '<div class="clock-log-row"><span>In:</span><span class="clock-log-time">' + fmtTime(entry.clockIn) + ' · ' + fmtDate(entry.clockIn) + '</span></div>' +
+        '<div class="clock-log-row"><span>Out:</span><span class="clock-log-time">' + fmtTime(entry.clockOut) + ' · ' + fmtDate(entry.clockOut) + '</span></div>' +
+        '<div class="clock-log-row" style="margin-top:6px"><span>Total:</span><span class="clock-log-duration" style="color:'+userColor+'">' + fmtDuration(entry.clockIn, entry.clockOut) + '</span></div>' +
+        (entry.note ? '<div class="clock-log-note">📝 ' + entry.note + '</div>' : '') +
+        (isOwner() ? '<button onclick="startEditClock('+realIdx+')" style="margin-top:10px;background:transparent;border:1px solid #f9731640;color:#f97316;border-radius:6px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:\'IBM Plex Mono\',monospace;letter-spacing:0.08em;font-weight:700;width:100%">✏ EDIT ENTRY</button>' : '') +
+        '</div>';
+    }).join('');
+  }
+
+  el.innerHTML = summaryHtml +
+    (clockedIn ? '<div class="section-label" style="margin-top:4px">Active Session</div>' + currentSession : '') +
     '<div class="section-label" style="margin-top:8px">Past Sessions</div>' +
     logHtml;
 }
